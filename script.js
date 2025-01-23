@@ -1,19 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const colors = [
-    '#fff',
-    '#f0f7ff',
-    '#fff5f5',
-    '#f7fff0',
-    '#fff0f7'
-  ];
+const lightModeColors = {
+  background: '#fff',
+  text: '#222',
+  containerBackground: '#f0f7ff',
+};
 
-  let currentColorIndex = 0;
+const darkModeColors = {
+  background: '#222',
+  text: '#fff',
+  containerBackground: '#333',
+};
 
-  document.getElementById('colorChangeButton').addEventListener('click', function() {
-    const containers = document.querySelectorAll('.container');
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
-    containers.forEach(container => {
-      container.style.backgroundColor = colors[currentColorIndex];
-    });
-  });
+let isLightMode = true; 
+
+document.getElementById('colorChangeButton').addEventListener('click', function() {
+  const body = document.body;
+  const container = document.querySelector('.container');
+
+
+  if (isLightMode) {
+
+    body.style.backgroundColor = darkModeColors.background;
+    body.style.color = darkModeColors.text;
+    container.style.backgroundColor = darkModeColors.containerBackground;
+  } else {
+
+    body.style.backgroundColor = lightModeColors.background;
+    body.style.color = lightModeColors.text;
+    container.style.backgroundColor = lightModeColors.containerBackground;
+  }
+
+
+  isLightMode = !isLightMode;
 });
