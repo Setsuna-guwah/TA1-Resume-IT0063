@@ -9,9 +9,9 @@ html {
 }
 
 .header {
-    position: relative; 
+  position: relative; 
 }
-  
+
 .profile-image {
   position: absolute;
   top: -23px; 
@@ -158,4 +158,41 @@ body {
 
 #colorChangeButton:hover {
   background: #4095c6;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .header .full-name {
+    font-size: 30px;
+  }
+
+  .left,
+  .right {
+    display: block;
+    width: 100%;
+  }
+
+  .profile-image {
+    position: static;
+    margin: 0 auto 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .full-name {
+    font-size: 24px;
+  }
+
+  .container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .header .contact-info {
+    font-size: 12px;
+  }
 }
